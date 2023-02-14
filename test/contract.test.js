@@ -39,7 +39,7 @@ describe("Dai", function () {
     expect(ethers.utils.formatEther(allowance.toString())).to.equal("0.0");
   });
 
-  it("should mint tokens and transfer", async () => {
+  it("should mint tokens, transfer and burn", async () => {
     const amount = ethers.utils.parseEther("100");
     await contract.connect(user1).mint(user1.address, amount);
 
@@ -54,6 +54,17 @@ describe("Dai", function () {
     const balanceUser2 = await contract.balanceOf(user2.address);
     expect(ethers.utils.formatEther(balanceUser1.toString())).to.equal("50.0");
     expect(ethers.utils.formatEther(balanceUser2.toString())).to.equal("50.0");
+
+    await contract.burn(user1.address, ethers.utils.parseEther("50"));
+    const balanceUs1 = await contract.balanceOf(user1.address);
+    const balanceUs2 = await contract.balanceOf(user2.address);
+    expect(ethers.utils.formatEther(balanceUs1.toString())).to.equal("0.0");
+    expect(ethers.utils.formatEther(balanceUs2.toString())).to.equal("50.0");
+
+    const totalSupply_finale = await contract.totalSupply();
+    expect(ethers.utils.formatEther(totalSupply_finale.toString())).to.equal(
+      "50.0"
+    );
   });
 
   // it("transfers DAI from one account to another", async function () {
