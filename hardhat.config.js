@@ -1,4 +1,4 @@
-require("dotenv").config({ path: __dirname + "/.env.development" });
+// require("dotenv").config({ path: __dirname + "/.env.development" });
 require("@nomicfoundation/hardhat-toolbox");
 require("hardhat-awesome-cli");
 require("transaction-retry-tool");
@@ -43,7 +43,7 @@ module.exports = {
     },
   },
   solidity: {
-    version: "0.8.17",
+    version: "0.5.12",
     settings: {
       optimizer: {
         enabled: true,

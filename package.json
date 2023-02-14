@@ -3,5 +3,9 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "hardhat": "^2.12.6"
+  },
+  "dependencies": {
+    "hardhat-awesome-cli": "^0.0.23",
+    "transaction-retry-tool": "^0.1.0"
   }
 }

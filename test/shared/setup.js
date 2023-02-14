@@ -1,7 +1,6 @@
 const { network } = require("hardhat");
 
 const constants = require("../../constants");
-const functions = require("./functions");
 
 console.log(
   "\x1b[34m",
@@ -82,6 +81,6 @@ const setupProviderAndAccount = async () => {
 };
 
 module.exports = {
-  setupContract,
+  // setupContract,
   setupProviderAndAccount,
 };
