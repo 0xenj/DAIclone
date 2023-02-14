@@ -7,7 +7,7 @@ module.exports = {
   #    # #    # # 
   #####  #    # #      
 `,
-  CONTRACT_NAME: "Dai",
+  CONTRACT_NAME: "Dai Stablecoin",
   TOKEN_NAME: "DAI",
   TOKEN_SYMBOL: "DAI",
   CONTRACT_CONTRACT_URI: "ipfs://test123456test.test/test123contractURI.json",

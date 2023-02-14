@@ -13,29 +13,20 @@ console.log(
   "\x1b[0m"
 );
 
-const setupContract = async (addAddressesToWL = []) => {
-  // Get contract artifacts
-  const ContractFactory = await ethers.getContractFactory(
-    constants.CONTRACT_NAME
-  );
+// const setupContract = async () => {
+//   // Get contract artifacts
+//   const ContractFactory = await ethers.getContractFactory(
+//     constants.CONTRACT_NAME
+//   );
+//   // Deploy contracts
+//   const contract = await ContractFactory.deploy(
+//     constants.TOKEN_NAME,
+//     constants.TOKEN_SYMBOL
+//   );
+//   const contractInstance = await contract.deployed();
 
-  const WHITELIST_root = await functions.returnBuildRoot([
-    ...constants.WhiteList,
-    ...addAddressesToWL,
-  ]);
-
-  // Deploy contracts
-  const contract = await ContractFactory.deploy(
-    constants.TOKEN_NAME,
-    constants.TOKEN_SYMBOL,
-    constants.MAX_SUPPLY
-  );
-  const contractInstance = await contract.deployed();
-
-  await contractInstance.updateWhitelistRoot(WHITELIST_root);
-
-  return contractInstance;
-};
+//   return contractInstance;
+// };
 
 const setupProviderAndAccount = async () => {
   if (network.name === "hardhat" || network.name === "localhost")
