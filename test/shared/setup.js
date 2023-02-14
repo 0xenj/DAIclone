@@ -17,7 +17,7 @@ const setupContractTest1 = async () => {
   // Get contract artifacts
   const ContractFactory = await ethers.getContractFactory("Dai");
   // Deploy contracts
-  const contract = await ContractFactory.deploy(1);
+  const contract = await ContractFactory.connect(user1).deploy(1);
   const contractInstance = await contract.deployed();
   return contractInstance;
 };
