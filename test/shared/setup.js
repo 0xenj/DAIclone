@@ -12,20 +12,15 @@ console.log(
   "\x1b[0m"
 );
 
-// const setupContract = async () => {
-//   // Get contract artifacts
-//   const ContractFactory = await ethers.getContractFactory(
-//     constants.CONTRACT_NAME
-//   );
-//   // Deploy contracts
-//   const contract = await ContractFactory.deploy(
-//     constants.TOKEN_NAME,
-//     constants.TOKEN_SYMBOL
-//   );
-//   const contractInstance = await contract.deployed();
-
-//   return contractInstance;
-// };
+const setupContractTest1 = async () => {
+  const initialBalance = ethers.utils.parseEther("500");
+  // Get contract artifacts
+  const ContractFactory = await ethers.getContractFactory("Dai");
+  // Deploy contracts
+  const contract = await ContractFactory.deploy(ethers.utils.parseEther("1"));
+  const contractInstance = await contract.deployed();
+  return contractInstance;
+};
 
 const setupProviderAndAccount = async () => {
   if (network.name === "hardhat" || network.name === "localhost")
@@ -82,5 +77,6 @@ const setupProviderAndAccount = async () => {
 
 module.exports = {
   // setupContract,
+  setupContractTest1,
   setupProviderAndAccount,
 };
