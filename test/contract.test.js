@@ -48,6 +48,12 @@ describe("Dai", function () {
 
     const balance = await contract.balanceOf(user1.address);
     expect(ethers.utils.formatEther(balance.toString())).to.equal("100.0");
+
+    await contract.transfer(user2.address, ethers.utils.parseEther("50"));
+    const balanceUser1 = await contract.balanceOf(user1.address);
+    const balanceUser2 = await contract.balanceOf(user2.address);
+    expect(ethers.utils.formatEther(balanceUser1.toString())).to.equal("50.0");
+    expect(ethers.utils.formatEther(balanceUser2.toString())).to.equal("50.0");
   });
 
   // it("transfers DAI from one account to another", async function () {
