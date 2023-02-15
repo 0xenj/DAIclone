@@ -66,14 +66,4 @@ describe("Dai", function () {
       "50.0"
     );
   });
-
-  // it("transfers DAI from one account to another", async function () {
-  //   const transferAmount = ethers.utils.parseEther("100");
-  //   await contract.transfer(user1.address, transferAmount);
-
-  //   const ownerBalance = await contract.balanceOf(owner.address);
-  //   const user1Balance = await contract.balanceOf(user1.address);
-  //   expect(ownerBalance).to.equal(initialBalance.sub(transferAmount));
-  //   expect(user1Balance).to.equal(transferAmount);
-  // });
 });
