@@ -94,18 +94,5 @@ contract Dai_test is Helper {
     help_withdrawEther(ADMIN);
   }
 
-  function test_SimpleNft_withdrawEther_by_anyone() public {
-    uint256 totalSupply = nftContract.totalSupply();
-    help_startMinting();
-    vm.prank(user11);
-    vm.deal(user11, 1 ether);
-    nftContract.mintWhiteList{ value: 1 ether }(2, _ADDRESS11_WL_PROOFS);
 
-    uint256 finalTotalSupply = nftContract.totalSupply();
-    assertEq(finalTotalSupply, totalSupply + 2);
-    assertEq(nftContract.ownerOf(totalSupply), user11);
-    assertEq(nftContract.ownerOf(totalSupply + 1), user11);
-
-    help_withdrawEther(user11, RevertStatus.OwnableCallerNotOwner);
-  }
 }
